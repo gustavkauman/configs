@@ -23,3 +23,15 @@ export SAVEHIST=1000
 export HISTFILE=~/.zsh_history
 export HISTCONTROL=ignoredumps
 export ZSH_AUTOSUGGEST_HISTORY_IGNORE='(ls|l|la|ll|lll|cd ..|clear|bg|fg|exit|* --help|)'
+
+# ===============================
+# Alias
+# ===============================
+
+alias gs='git status'
+alias c='cargo'
+alias e='nvim'
+alias g='git'
+
+
+[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
