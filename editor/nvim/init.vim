@@ -23,10 +23,20 @@ Plug 'stephpy/vim-yaml'
 Plug 'rust-lang/rust.vim'
 Plug 'godlygeek/tabular'
 Plug 'plasticboy/vim-markdown'
+Plug 'ludovicchabant/vim-gutentags'
+
+" PHP
+Plug 'StanAngeloff/php.vim'
+Plug 'stephpy/vim-php-cs-fixer'
+Plug 'phpactor/phpactor'
+Plug 'phpactor/ncm2-phpactor'
+Plug 'tobyS/pdv'
+
+" Autocompletion
+Plug 'ncm2/ncm2'
 
 " Git me some controlz
 Plug 'tpope/vim-fugitive'
-
 
 " Language support
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
@@ -34,6 +44,13 @@ Plug 'autozimu/LanguageClient-neovim', {
     \ 'branch': 'next',
     \ 'do': 'bash install.sh',
     \ }
+
+" Commentary
+Plug 'tpope/vim-commentary'
+Plug 'tpope/vim-abolish'
+
+" Debugging
+Plug 'joonty/vdebug'
 
 call plug#end()
 
