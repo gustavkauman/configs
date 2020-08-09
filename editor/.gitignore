@@ -1,3 +1,2 @@
-*
-!nvim/init.vim
-!nvim/autoload/plug.vim
+plugged/
+.netrwhist
