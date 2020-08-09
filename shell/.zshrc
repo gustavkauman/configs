@@ -5,7 +5,7 @@ export PATH=$HOME/.composer/vendor/bin:$HOME/bin:/usr/local/bin:$PATH
 export ZSH="/home/gustav/.oh-my-zsh"
    
 # Set the theme
-ZSH_THEME="robbyrussell"
+# ZSH_THEME="robbyrussell"
 
 # Plugins
 plugins=(zsh-autosuggestions)
@@ -22,7 +22,7 @@ export HISTSIZE=1000
 export SAVEHIST=1000
 export HISTFILE=~/.zsh_history
 export HISTCONTROL=ignoredumps
-export ZSH_AUTOSUGGEST_HISTORY_IGNORE='(ls|l|la|ll|lll|cd ..|clear|bg|fg|exit|* --help|)'
+export ZSH_AUTOSUGGEST_HISTORY_IGNORE='(ls*|l*|la*|ll|lll|cd ..|clear|bg|fg|exit|* --help|)'
 
 # ===============================
 # Alias
@@ -33,5 +33,10 @@ alias c='cargo'
 alias e='nvim'
 alias g='git'
 
+# Base16 Shell
+BASE16_SHELL="$HOME/.config/base16-shell/"
+[ -n "$PS1" ] && \
+    [ -s "$BASE16_SHELL/profile_helper.sh" ] && \
+        eval "$("$BASE16_SHELL/profile_helper.sh")"
 
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
