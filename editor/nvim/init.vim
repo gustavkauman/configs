@@ -23,17 +23,21 @@ Plug 'stephpy/vim-yaml'
 Plug 'rust-lang/rust.vim'
 Plug 'godlygeek/tabular'
 Plug 'plasticboy/vim-markdown'
-Plug 'ludovicchabant/vim-gutentags'
+" Plug 'ludovicchabant/vim-gutentags'
 
 " PHP
-Plug 'StanAngeloff/php.vim'
-Plug 'stephpy/vim-php-cs-fixer'
-Plug 'phpactor/phpactor'
+" Plug 'StanAngeloff/php.vim'
+" Plug 'stephpy/vim-php-cs-fixer'
+" Plug 'phpactor/phpactor'
+" Plug 'phpactor/ncm2-phpactor'
+" Plug 'tobyS/pdv'
+Plug 'roxma/LanguageServer-php-neovim',  {'do': 'composer install && composer run-script parse-stubs'}
 Plug 'phpactor/ncm2-phpactor'
-Plug 'tobyS/pdv'
+Plug 'phpactor/phpactor', {'for': 'php', 'branch': 'master', 'do': 'composer install --no-dev -o'}
 
 " Autocompletion
 Plug 'ncm2/ncm2'
+Plug 'roxma/nvim-yarp'
 
 " Git me some controlz
 Plug 'tpope/vim-fugitive'
@@ -168,6 +172,10 @@ set vb t_vb = " remove the beeps
 set encoding=utf-8
 
 autocmd InsertLeave * set nopaste
+
+" enable ncm2 for all buffers
+autocmd BufEnter * call ncm2#enable_for_buffer()
+set completeopt=noinsert,menuone,noselect
 
 " Proper search
 set incsearch

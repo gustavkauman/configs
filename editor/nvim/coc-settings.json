@@ -1,0 +1,11 @@
+{
+	"languageserver": {
+		"phpactor": {
+			"phpactor.enable":true,
+			"command": "phpactor",
+			"args": ["language-server"],
+			"filetypes": ["php"],
+			"trace.server": "verbose"
+		}
+	}
+}
