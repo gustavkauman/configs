@@ -10,6 +10,7 @@ call plug#begin()
 Plug 'itchyny/lightline.vim'
 Plug 'machakann/vim-highlightedyank'
 Plug 'andymass/vim-matchup'
+Plug 'chriskempson/base16-vim'
 
 " Fuzzy finder
 Plug 'airblade/vim-rooter'
@@ -25,6 +26,14 @@ Plug 'plasticboy/vim-markdown'
 
 " Git me some controlz
 Plug 'tpope/vim-fugitive'
+
+
+" Language support
+Plug 'neoclide/coc.nvim', {'branch': 'release'}
+Plug 'autozimu/LanguageClient-neovim', {
+    \ 'branch': 'next',
+    \ 'do': 'bash install.sh',
+    \ }
 
 call plug#end()
 
@@ -55,6 +64,21 @@ function! LightlineFilename()
 endfunction
 
 autocmd User CocStatusChange,CocDiagnosticChange call lightline#update()
+autocmd CursorHold * silent call CocActionAsync('highlight')
+
+" Sane splits
+set splitright
+set splitbelow
+
+" deal with colors
+if filereadable(expand("~/.vimrc_background"))
+  let base16colorspace=256
+  source ~/.vimrc_background
+endif
+syntax on
+
+" Brighter comments
+call Base16hi("Comment", g:base16_gui09, "", g:base16_cterm09, "", "", "")
 
 " =======================
 " Remaps
@@ -63,9 +87,8 @@ autocmd User CocStatusChange,CocDiagnosticChange call lightline#update()
 " Quick-save
 nmap <leader>w :w<CR>
 
-" Permanent undo
-set undodir=~/.vimdid
-set undofile
+" <leader><leader> toggles between buffers
+nnoremap <leader><leader> <c-^>
 
 " Center search results
 nnoremap <silent> n nzz
@@ -109,6 +132,14 @@ nnoremap k gk
 map <C-p> :Files<CR>
 nmap <leader>b :Buffers<CR>
 
+" Symbol renaming.
+nmap <leader>rn <Plug>(coc-rename)
+
+" Find symbol of current document.
+nnoremap <silent> <space>o  :<C-u>CocList outline<cr>
+
+" Search workspace symbols.
+nnoremap <silent> <space>s  :<C-u>CocList -I symbols<cr>
 
 " =======================
 " Editor settings
@@ -120,4 +151,45 @@ set vb t_vb = " remove the beeps
 set encoding=utf-8
 
 autocmd InsertLeave * set nopaste
+
+" Proper search
+set incsearch
+set ignorecase
+set smartcase
+set gdefault
+
+" Permanent undo
+set undodir=~/.vimdid
+set undofile
+
+inoremap <silent><expr> <TAB>
+      \ pumvisible() ? "\<C-n>" :
+      \ <SID>check_back_space() ? "\<TAB>" :
+      \ coc#refresh()
+
+function! s:check_back_space() abort
+  let col = col('.') - 1
+  return !col || getline('.')[col - 1]  =~# '\s'
+endfunction
+
+" Use <TAB> for selections ranges.
+nmap <silent> <TAB> <Plug>(coc-range-select)
+xmap <silent> <TAB> <Plug>(coc-range-select)
+
+" Use <c-.> to trigger completion.
+inoremap <silent><expr> <c-.> coc#refresh()
+
+" Use <cr> to confirm completion, `<C-g>u` means break undo chain at current
+" position. Coc only does snippet and additional edit on confirm.
+if exists('*complete_info')
+  inoremap <expr> <cr> complete_info()["selected"] != "-1" ? "\<C-y>" : "\<C-g>u\<CR>"
+else
+  imap <expr> <cr> pumvisible() ? "\<C-y>" : "\<C-g>u\<CR>"
+endif
+
+" GoTo code navigation.
+nmap <silent> gd <Plug>(coc-definition)
+nmap <silent> gy <Plug>(coc-type-definition)
+nmap <silent> gi <Plug>(coc-implementation)
+nmap <silent> gr <Plug>(coc-references)
 
