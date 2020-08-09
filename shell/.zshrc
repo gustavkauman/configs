@@ -5,7 +5,7 @@ export PATH=$HOME/.composer/vendor/bin:$HOME/bin:/usr/local/bin:$PATH
 export ZSH="/home/gustav/.oh-my-zsh"
    
 # Set the theme
-# ZSH_THEME="robbyrussell"
+ZSH_THEME="robbyrussell"
 
 # Plugins
 plugins=(zsh-autosuggestions)
