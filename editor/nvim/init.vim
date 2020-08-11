@@ -228,4 +228,7 @@ let g:UltiSnipsJumpForwardTrigger="<c-j>"
 let g:UltiSnipsJumpBackwardTrigger="<c-b>"
 let g:ultisnips_php_scalar_types = 1
 
+" Set more sensible completion
+set cmdheight=2
+set updatetime=300
 
