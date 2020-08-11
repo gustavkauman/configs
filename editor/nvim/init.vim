@@ -23,21 +23,20 @@ Plug 'stephpy/vim-yaml'
 Plug 'rust-lang/rust.vim'
 Plug 'godlygeek/tabular'
 Plug 'plasticboy/vim-markdown'
-" Plug 'ludovicchabant/vim-gutentags'
 
 " PHP
-" Plug 'StanAngeloff/php.vim'
-" Plug 'stephpy/vim-php-cs-fixer'
-" Plug 'phpactor/phpactor'
-" Plug 'phpactor/ncm2-phpactor'
-" Plug 'tobyS/pdv'
-Plug 'roxma/LanguageServer-php-neovim',  {'do': 'composer install && composer run-script parse-stubs'}
+Plug 'phpactor/phpactor', {'do': 'call phpactor#Update()', 'for': 'php'}
 Plug 'phpactor/ncm2-phpactor'
-Plug 'phpactor/phpactor', {'for': 'php', 'branch': 'master', 'do': 'composer install --no-dev -o'}
+Plug 'roxma/LanguageServer-php-neovim',  {'do': 'composer install && composer run-script parse-stubs'}
+Plug 'SirVer/ultisnips'
+Plug 'phux/vim-snippets'
+Plug 'ncm2/ncm2-ultisnips'
+Plug 'StanAngeloff/php.vim', {'for': 'php'}
 
 " Autocompletion
 Plug 'ncm2/ncm2'
 Plug 'roxma/nvim-yarp'
+Plug 'roxma/vim-hug-neovim-rpc'
 
 " Git me some controlz
 Plug 'tpope/vim-fugitive'
@@ -222,4 +221,11 @@ nmap <silent> gr <Plug>(coc-references)
 set tabstop=4
 set softtabstop=0 noexpandtab
 set shiftwidth=4
+
+" Add snippets
+let g:UltiSnipsExpandTrigger="<c-j>"
+let g:UltiSnipsJumpForwardTrigger="<c-j>"
+let g:UltiSnipsJumpBackwardTrigger="<c-b>"
+let g:ultisnips_php_scalar_types = 1
+
 
