@@ -218,3 +218,8 @@ nmap <silent> gy <Plug>(coc-type-definition)
 nmap <silent> gi <Plug>(coc-implementation)
 nmap <silent> gr <Plug>(coc-references)
 
+" Set sensible tabs
+set tabstop=4
+set softtabstop=0 noexpandtab
+set shiftwidth=4
+
