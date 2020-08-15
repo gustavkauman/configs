@@ -31,6 +31,7 @@ Plug 'autozimu/LanguageClient-neovim', {
     \ 'branch': 'next',
     \ 'do': 'bash install.sh',
     \ }
+Plug 'craigemery/vim-autotag'
 
 " Syntactic language support
 Plug 'cespare/vim-toml'
@@ -47,6 +48,7 @@ Plug 'SirVer/ultisnips'
 Plug 'phux/vim-snippets'
 Plug 'ncm2/ncm2-ultisnips'
 Plug 'StanAngeloff/php.vim', {'for': 'php'}
+Plug 'vim-scripts/vim-php-namespace'
 
 " Commentary
 Plug 'tpope/vim-commentary'
@@ -232,3 +234,12 @@ let g:ultisnips_php_scalar_types = 1
 set cmdheight=2
 set updatetime=300
 
+" PHP import
+inoremap <Leader>u <C-O>:call PhpInsertUse()<CR>
+noremap <Leader>u :call PhpInsertUse()<CR>
+
+" Automatically create tags
+au BufWritePost *.php silent! !eval '[ -f ".git/hooks/ctags" ] && .git/hooks/ctags' &
+
+"Fix python issue
+let g:autotagStartMethod='fork'
