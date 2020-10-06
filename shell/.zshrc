@@ -2,7 +2,7 @@
 export PATH=$HOME/.composer/vendor/bin:$HOME/bin:/usr/local/bin:$PATH
 
 # Path to oh-my-zsh installation.
-export ZSH="/home/gustav/.oh-my-zsh"
+export ZSH="$HOME/.oh-my-zsh"
    
 # Set the theme
 ZSH_THEME="robbyrussell"
