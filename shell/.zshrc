@@ -3,7 +3,7 @@ export PATH=$HOME/.composer/vendor/bin:$HOME/bin:/usr/local/bin:$PATH
 
 # Path to oh-my-zsh installation.
 export ZSH="$HOME/.oh-my-zsh"
-   
+
 # Set the theme
 ZSH_THEME="robbyrussell"
 
@@ -12,6 +12,9 @@ plugins=(zsh-autosuggestions)
 
 # Load oh my zsh
 source $ZSH/oh-my-zsh.sh
+
+# Set prompt
+PROMPT=" %{$fg[cyan]%}%c%{$reset_color%} "
 
 # ===============================
 # User configuration
