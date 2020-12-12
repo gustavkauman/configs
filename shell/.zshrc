@@ -1,5 +1,5 @@
 # Fix path 
-export PATH=$HOME/.cargo/bin:$HOME/.composer/vendor/bin:$HOME/bin:/usr/local/bin:$PATH
+export PATH=$HOME/.bin:$HOME/.cargo/bin:$HOME/.composer/vendor/bin:$HOME/bin:/usr/local/bin:$PATH
 
 # Path to oh-my-zsh installation.
 export ZSH="$HOME/.oh-my-zsh"
@@ -35,6 +35,7 @@ alias gs='git status'
 alias c='cargo'
 alias e='nvim'
 alias g='git'
+alias get_idf='. ~/dev/dtu/esp/esp-idf/export.sh'
 
 # Base16 Shell
 BASE16_SHELL="$HOME/.config/base16-shell/"
