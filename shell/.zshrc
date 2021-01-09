@@ -1,5 +1,5 @@
 # Fix path 
-export PATH=$HOME/.bin:$HOME/.cargo/bin:$HOME/.composer/vendor/bin:$HOME/bin:/usr/local/bin:$PATH
+export PATH=$HOME/.bin:$HOME/.cargo/bin:$HOME/.composer/vendor/bin:$HOME/bin:/usr/local/bin:$PATH:$HOME/.config/composer/vendor/bin
 
 # Path to oh-my-zsh installation.
 export ZSH="$HOME/.oh-my-zsh"
