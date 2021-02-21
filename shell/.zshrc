@@ -36,6 +36,7 @@ alias c='cargo'
 alias e='nvim'
 alias g='git'
 alias get_idf='. ~/dev/dtu/esp/esp-idf/export.sh'
+alias sail='./vendor/bin/sail'
 
 # Base16 Shell
 BASE16_SHELL="$HOME/.config/base16-shell/"
@@ -44,3 +45,5 @@ BASE16_SHELL="$HOME/.config/base16-shell/"
         eval "$("$BASE16_SHELL/profile_helper.sh")"
 
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
+
+[ -f ~/.nvm/nvm.sh ] && source ~/.nvm/nvm.sh
