@@ -57,6 +57,11 @@ Plug 'tpope/vim-abolish'
 " Debugging
 Plug 'joonty/vdebug'
 
+" Tex
+Plug 'lervag/vimtex'
+Plug 'Konfekt/FastFold'
+Plug 'matze/vim-tex-fold'
+
 call plug#end()
 
 " =======================
@@ -234,12 +239,26 @@ let g:ultisnips_php_scalar_types = 1
 set cmdheight=2
 set updatetime=300
 
-" PHP import
+"Fix python issue
+let g:autotagStartMethod='fork'
+
+" =======================
+" Latex settings
+" =======================
+
+let g:tex_flavor  = 'latex'
+let g:tex_conceal = ''
+let g:vimtex_fold_manual = 1
+let g:vimtex_latexmk_continuous = 1
+let g:vimtex_compiler_progname = 'nvr'
+
+" =======================
+" PHP settings
+" =======================
+
+" Remaps
 inoremap <Leader>u <C-O>:call PhpInsertUse()<CR>
 noremap <Leader>u :call PhpInsertUse()<CR>
 
 " Automatically create tags
 au BufWritePost *.php silent! !eval '[ -f ".git/hooks/ctags" ] && .git/hooks/ctags' &
-
-"Fix python issue
-let g:autotagStartMethod='fork'
