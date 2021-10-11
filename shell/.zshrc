@@ -16,6 +16,9 @@ source $ZSH/oh-my-zsh.sh
 # Set prompt
 PROMPT=" %{$fg[cyan]%}%c%{$reset_color%} "
 
+# Really handy .gitignore tool
+function gi() { curl -sLw n https://www.toptal.com/developers/gitignore/api/$@ ;}
+
 # ===============================
 # User configuration
 # ===============================
