@@ -34,6 +34,7 @@ export ZSH_AUTOSUGGEST_HISTORY_IGNORE='(ls*|l*|la*|ll|lll|cd ..*|clear|bg|fg|exi
 # Alias
 # ===============================
 
+alias vim='nvim'
 alias gs='git status'
 alias c='cargo'
 alias e='nvim'
@@ -50,3 +51,4 @@ BASE16_SHELL="$HOME/.config/base16-shell/"
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 
 [ -f ~/.nvm/nvm.sh ] && source ~/.nvm/nvm.sh
+[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
