@@ -102,10 +102,12 @@ if filereadable(expand("~/.vimrc_background"))
   let base16colorspace=256
   source ~/.vimrc_background
 endif
-syntax on
+
+let g:base16_shell_path="~/dev/others/base16/templates/shell/scripts/"
+" colorscheme base16-gruvbox-dark-hard
 
 " Brighter comments
-call Base16hi("Comment", g:base16_gui09, "", g:base16_cterm09, "", "", "")
+" call Base16hi("Comment", g:base16_gui09, "", g:base16_cterm09, "", "", "")
 
 " =======================
 " Remaps
@@ -239,7 +241,7 @@ let g:ultisnips_php_scalar_types = 1
 set cmdheight=2
 set updatetime=300
 
-"Fix python issue
+" Fix python issue
 let g:autotagStartMethod='fork'
 
 " =======================
