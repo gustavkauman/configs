@@ -272,8 +272,8 @@ augroup END
 " =======================
 
 " Remaps
-inoremap <Leader>u <C-O>:call PhpInsertUse()<CR>
-noremap <Leader>u :call PhpInsertUse()<CR>
+autocmd Filetype php inoremap <Leader>u <C-O>:call PhpInsertUse()<CR>
+autocmd Filetype php noremap <Leader>u :call PhpInsertUse()<CR>
 
 " Automatically create tags
 au BufWritePost *.php silent! !eval '[ -f ".git/hooks/ctags" ] && .git/hooks/ctags' &
