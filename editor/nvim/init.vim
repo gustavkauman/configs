@@ -69,7 +69,7 @@ call plug#end()
 " =======================
 
 if has('nvim')
-	set guicursor=
+	set guicursor=n-v-c:block-Cursor/lCursor-blinkon0,i-ci:ver25-Cursor/lCursor,r-cr:hor20-Cursor/lCursor
 end
 
 " Syntaxt highlightin on - yes please
@@ -277,3 +277,11 @@ autocmd Filetype php noremap <Leader>u :call PhpInsertUse()<CR>
 
 " Automatically create tags
 au BufWritePost *.php silent! !eval '[ -f ".git/hooks/ctags" ] && .git/hooks/ctags' &
+
+" =======================
+" Rust settings
+" =======================
+
+" Automatically run rustfmt on save
+let g:rustfmt_autosave = 1
+
