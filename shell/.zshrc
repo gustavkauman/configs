@@ -1,17 +1,17 @@
 # Fix path 
-export PATH=$HOME/.bin:$HOME/.cargo/bin:$HOME/.composer/vendor/bin:$HOME/bin:/usr/local/bin:$PATH:$HOME/.config/composer/vendor/bin
+export PATH=$HOME/.cargo/bin:$HOME/bin:$PATH
 
 # Path to oh-my-zsh installation.
-export ZSH="$HOME/.oh-my-zsh"
+# export ZSH="$HOME/.oh-my-zsh"
 
 # Set the theme
-ZSH_THEME="robbyrussell"
+# ZSH_THEME="robbyrussell"
 
 # Plugins
 plugins=(zsh-autosuggestions)
 
 # Load oh my zsh
-source $ZSH/oh-my-zsh.sh
+# source $ZSH/oh-my-zsh.sh
 
 # Set prompt
 PROMPT=" %{$fg[cyan]%}%c%{$reset_color%} "
@@ -34,13 +34,13 @@ export ZSH_AUTOSUGGEST_HISTORY_IGNORE='(ls*|l*|la*|ll|lll|cd ..*|clear|bg|fg|exi
 # Alias
 # ===============================
 
+alias ll='ls -lah'
+alias grep='grep --color=auto'
 alias vim='nvim'
 alias gs='git status'
 alias c='cargo'
 alias e='nvim'
 alias g='git'
-alias get_idf='. ~/dev/dtu/esp/esp-idf/export.sh'
-alias sail='./vendor/bin/sail'
 
 # Base16 Shell
 BASE16_SHELL="$HOME/.config/base16-shell/"
@@ -49,6 +49,3 @@ BASE16_SHELL="$HOME/.config/base16-shell/"
         eval "$("$BASE16_SHELL/profile_helper.sh")"
 
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
-
-[ -f ~/.nvm/nvm.sh ] && source ~/.nvm/nvm.sh
-[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
