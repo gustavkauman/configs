@@ -1,4 +1,4 @@
-set shell=/usr/bin/zsh
+set shell=/bin/zsh
 let mapleader = "\<Space>"
 
 " =======================
@@ -19,8 +19,8 @@ Plug 'junegunn/fzf.vim'
 
 " Autocompletion
 Plug 'ncm2/ncm2'
-Plug 'roxma/nvim-yarp'
 Plug 'roxma/vim-hug-neovim-rpc'
+Plug 'roxma/nvim-yarp', { 'do': 'pip install -r requirements.txt' }
 
 " Git me some controlz
 Plug 'tpope/vim-fugitive'
@@ -41,14 +41,14 @@ Plug 'godlygeek/tabular'
 Plug 'plasticboy/vim-markdown'
 
 " PHP
-Plug 'phpactor/phpactor', {'do': 'call phpactor#Update()', 'for': 'php'}
-Plug 'phpactor/ncm2-phpactor'
-Plug 'roxma/LanguageServer-php-neovim',  {'do': 'composer install && composer run-script parse-stubs'}
-Plug 'SirVer/ultisnips'
-Plug 'phux/vim-snippets'
-Plug 'ncm2/ncm2-ultisnips'
-Plug 'StanAngeloff/php.vim', {'for': 'php'}
-Plug 'vim-scripts/vim-php-namespace'
+"Plug 'phpactor/phpactor', {'do': 'call phpactor#Update()', 'for': 'php'}
+"Plug 'phpactor/ncm2-phpactor'
+"Plug 'roxma/LanguageServer-php-neovim',  {'do': 'composer install && composer run-script parse-stubs'}
+"Plug 'SirVer/ultisnips'
+"Plug 'phux/vim-snippets'
+"Plug 'ncm2/ncm2-ultisnips'
+"Plug 'StanAngeloff/php.vim', {'for': 'php'}
+"Plug 'vim-scripts/vim-php-namespace'
 
 " Commentary
 Plug 'tpope/vim-commentary'
@@ -63,6 +63,11 @@ Plug 'Konfekt/FastFold'
 Plug 'matze/vim-tex-fold'
 
 call plug#end()
+
+" =======================
+" fzf settings
+" =======================
+set rtp+=/usr/local/opt/fzf
 
 " =======================
 " GUI settings
@@ -196,8 +201,8 @@ set undodir=~/.vimdid
 set undofile
 
 inoremap <silent><expr> <TAB>
-      \ pumvisible() ? "\<C-n>" :
-      \ <SID>check_back_space() ? "\<TAB>" :
+      \ coc#pum#visible() ? coc#pum#next(1):
+      \ CheckBackspace() ? "\<Tab>" :
       \ coc#refresh()
 
 function! s:check_back_space() abort
