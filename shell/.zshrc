@@ -53,4 +53,9 @@ BASE16_SHELL="$HOME/.config/base16-shell/"
 # Ruby specifics
 source /opt/homebrew/opt/chruby/share/chruby/chruby.sh
 source /opt/homebrew/opt/chruby/share/chruby/auto.sh
+
+RUBIES+=(
+	/opt/rubies
+)
+
 chruby ruby-3.1.2
