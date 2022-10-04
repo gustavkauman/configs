@@ -16,8 +16,19 @@ plugins=(zsh-autosuggestions)
 # Set prompt
 PROMPT=" %{$fg[cyan]%}%c%{$reset_color%} "
 
+# ===============================
+# Functions
+# ===============================
+
 # Really handy .gitignore tool
 function gi() { curl -sLw n https://www.toptal.com/developers/gitignore/api/$@ ;}
+
+# Set Java version
+function jdk() { 
+	version=$1
+	export JAVA_HOME=$(/usr/libexec/java_home -v "$version")
+	java -version; 
+}
 
 # ===============================
 # User configuration
