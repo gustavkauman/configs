@@ -45,7 +45,7 @@ export ZSH_AUTOSUGGEST_HISTORY_IGNORE='(ls*|l*|la*|ll|lll|cd ..*|clear|bg|fg|exi
 # Alias
 # ===============================
 
-alias ll='ls -lah'
+alias ll='ls -lh'
 alias grep='grep --color=auto'
 alias vim='nvim'
 alias gs='git status'
