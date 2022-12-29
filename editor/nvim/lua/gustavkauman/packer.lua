@@ -1,4 +1,4 @@
-vim.cmd [[packadd packer.vim]]
+-- vim.cmd [[packadd packer.vim]]
 
 return require('packer').startup(function(use)
 	use 'wbthomason/packer.nvim'
@@ -37,8 +37,11 @@ return require('packer').startup(function(use)
 			-- Snippets
 			{'L3MON4D3/LuaSnip'},
 			{'rafamadriz/friendly-snippets'},
+
 		}
 	}
 
     use '/Users/gkauman/dev/al-neovim/'
+
+    use 'rust-lang/rust.vim'
 end)
