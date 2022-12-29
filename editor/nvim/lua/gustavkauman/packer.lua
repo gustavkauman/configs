@@ -39,4 +39,6 @@ return require('packer').startup(function(use)
 			{'rafamadriz/friendly-snippets'},
 		}
 	}
+
+    use '/Users/gkauman/dev/al-neovim/'
 end)

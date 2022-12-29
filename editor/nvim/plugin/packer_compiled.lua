@@ -79,6 +79,11 @@ _G.packer_plugins = {
     path = "/Users/gkauman/.local/share/nvim/site/pack/packer/start/LuaSnip",
     url = "https://github.com/L3MON4D3/LuaSnip"
   },
+  ["al-neovim"] = {
+    loaded = true,
+    path = "/Users/gkauman/.local/share/nvim/site/pack/packer/start/al-neovim",
+    url = "/Users/gkauman/dev/al-neovim/"
+  },
   ["cmp-buffer"] = {
     loaded = true,
     path = "/Users/gkauman/.local/share/nvim/site/pack/packer/start/cmp-buffer",
