@@ -44,4 +44,9 @@ return require('packer').startup(function(use)
     use '/Users/gkauman/dev/al-neovim/'
 
     use 'rust-lang/rust.vim'
+
+    use({
+        "iamcco/markdown-preview.nvim",
+        run = function() vim.fn["mkdp#util#install"]() end,
+    })
 end)
