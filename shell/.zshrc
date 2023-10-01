@@ -70,11 +70,20 @@ BASE16_SHELL="$HOME/.config/base16-shell/"
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 
 # Ruby specifics
-source /opt/homebrew/opt/chruby/share/chruby/chruby.sh
-source /opt/homebrew/opt/chruby/share/chruby/auto.sh
+which chruby > /dev/null
+if [[ $? == 0 ]]
+then
+    source /opt/homebrew/opt/chruby/share/chruby/chruby.sh
+    source /opt/homebrew/opt/chruby/share/chruby/auto.sh
 
-RUBIES+=(
-	/opt/rubies
-)
+    RUBIES+=(
+        /opt/rubies
+    )
 
-chruby ruby-3.1.2
+    chruby ruby-3.1.2
+fi
+
+# nvm
+export NVM_DIR="$HOME/.nvm"
+[ -s "/opt/homebrew/opt/nvm/nvm.sh" ] && \. "/opt/homebrew/opt/nvm/nvm.sh"
+[ -s "/opt/homebrew/opt/nvm/etc/bash_completion.d/nvm" ] && \. "/opt/homebrew/opt/nvm/etc/bash_completion.d/nvm"
