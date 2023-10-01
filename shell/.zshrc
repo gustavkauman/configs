@@ -42,6 +42,14 @@ export HISTCONTROL=ignoredumps
 export ZSH_AUTOSUGGEST_HISTORY_IGNORE='(ls*|l*|la*|ll|lll|cd ..*|clear|bg|fg|exit|* --help|)'
 
 # ===============================
+# GPG configuration
+# ===============================
+export GPG_TTY=$(tty)
+# SSH with GPG
+export SSH_AUTH_SOCK=$(gpgconf --list-dirs agent-ssh-socket)
+gpgconf --launch gpg-agent
+
+# ===============================
 # Alias
 # ===============================
 
