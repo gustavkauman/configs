@@ -16,7 +16,10 @@ return require('packer').startup(function(use)
 		end
 	})
 
-	use('nvim-treesitter/nvim-treesitter', {run = ':TSUpdate'})
+	use(
+        'nvim-treesitter/nvim-treesitter',
+        {run = ':TSUpdate'}
+    )
 
 	use {
 		'VonHeikemen/lsp-zero.nvim',
@@ -37,11 +40,14 @@ return require('packer').startup(function(use)
 			-- Snippets
 			{'L3MON4D3/LuaSnip'},
 			{'rafamadriz/friendly-snippets'},
-
-		}
+		},
+        branch = 'v2.x'
 	}
 
-    use '/Users/gkauman/dev/al-neovim/'
+    use {
+        '/Users/gkauman/dev/al-neovim/',
+        opt = true
+    }
 
     use 'rust-lang/rust.vim'
 
