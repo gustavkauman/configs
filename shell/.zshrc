@@ -70,8 +70,7 @@ BASE16_SHELL="$HOME/.config/base16-shell/"
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 
 # Ruby specifics
-which chruby > /dev/null
-if [[ $? == 0 ]]
+if [ -f /opt/homebrew/opt/chruby/share/chruby/chruby.sh ];
 then
     source /opt/homebrew/opt/chruby/share/chruby/chruby.sh
     source /opt/homebrew/opt/chruby/share/chruby/auto.sh
