@@ -13,10 +13,6 @@ augroup filetypedetect
   au FileType go nmap <leader>c <Plug>(go-coverage)
   " Rust language server
   "au FileType rust :LanguageClientStart
-  " Shorter columns in text
-  autocmd Filetype tex setlocal spell tw=80 colorcolumn=81
-  autocmd Filetype text setlocal spell tw=72 colorcolumn=73
-  autocmd Filetype markdown setlocal spell tw=72 colorcolumn=73
   " No autocomplete in text
   autocmd BufRead,BufNewFile /tmp/mutt* let g:deoplete#enable_at_startup = 0
   autocmd Filetype tex let g:deoplete#enable_at_startup = 0
