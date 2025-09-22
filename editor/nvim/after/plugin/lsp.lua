@@ -6,7 +6,8 @@ lsp.ensure_installed({
 	'tsserver',
 	'eslint',
 	'rust_analyzer',
-    'svelte'
+    'svelte',
+    'omnisharp'
 })
 
 local cmp = require('cmp')

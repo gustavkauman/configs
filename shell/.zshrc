@@ -1,5 +1,5 @@
 # Fix path 
-export PATH=$HOME/.cargo/bin:$HOME/bin:$PATH
+export PATH=$HOME/.cargo/bin:$HOME/bin:$HOME/.dotnet/tools:$PATH
 
 # Path to oh-my-zsh installation.
 # export ZSH="$HOME/.oh-my-zsh"
@@ -30,6 +30,10 @@ function jdk() {
 	java -version; 
 }
 
+function no() {
+    curl -sL https://naas.isalman.dev/no | jq -r .reason ; 
+}
+
 # ===============================
 # User configuration
 # ===============================
@@ -40,6 +44,9 @@ export SAVEHIST=1000
 export HISTFILE=~/.zsh_history
 export HISTCONTROL=ignoredumps
 export ZSH_AUTOSUGGEST_HISTORY_IGNORE='(ls*|l*|la*|ll|lll|cd ..*|clear|bg|fg|exit|* --help|)'
+
+# Locale
+export LANG="en_US.UTF-8"
 
 # ===============================
 # GPG configuration
@@ -86,3 +93,15 @@ fi
 export NVM_DIR="$HOME/.nvm"
 [ -s "/opt/homebrew/opt/nvm/nvm.sh" ] && \. "/opt/homebrew/opt/nvm/nvm.sh"
 [ -s "/opt/homebrew/opt/nvm/etc/bash_completion.d/nvm" ] && \. "/opt/homebrew/opt/nvm/etc/bash_completion.d/nvm"
+[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
+
+# pnpm
+export PNPM_HOME="/Users/gkauman/Library/pnpm"
+case ":$PATH:" in
+  *":$PNPM_HOME:"*) ;;
+  *) export PATH="$PNPM_HOME:$PATH" ;;
+esac
+# pnpm end
+
+# DotNet root
+export DOTNET_ROOT="$HOMEBREW_PREFIX/opt/dotnet/libexec"
