@@ -1,5 +1,5 @@
 # Fix path 
-export PATH=$HOME/.cargo/bin:$HOME/bin:$HOME/.dotnet/tools:$PATH
+export PATH=/opt/nvim-linux-x86_64/bin:$HOME/.cargo/bin:$HOME/bin:$HOME/.dotnet/tools:$PATH
 
 # Path to oh-my-zsh installation.
 # export ZSH="$HOME/.oh-my-zsh"
@@ -51,10 +51,13 @@ export LANG="en_US.UTF-8"
 # ===============================
 # GPG configuration
 # ===============================
-export GPG_TTY=$(tty)
-# SSH with GPG
-export SSH_AUTH_SOCK=$(gpgconf --list-dirs agent-ssh-socket)
-gpgconf --launch gpg-agent
+
+if [[ "$(uname -r)" != *"WSL"* ]]; then # GPG is run through Windows on WSL
+	export GPG_TTY=$(tty)
+	# SSH with GPG
+	export SSH_AUTH_SOCK=$(gpgconf --list-dirs agent-ssh-socket)
+	gpgconf --launch gpg-agent
+fi
 
 # ===============================
 # Alias
@@ -90,10 +93,16 @@ then
 fi
 
 # nvm
-export NVM_DIR="$HOME/.nvm"
-[ -s "/opt/homebrew/opt/nvm/nvm.sh" ] && \. "/opt/homebrew/opt/nvm/nvm.sh"
-[ -s "/opt/homebrew/opt/nvm/etc/bash_completion.d/nvm" ] && \. "/opt/homebrew/opt/nvm/etc/bash_completion.d/nvm"
-[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
+if [[ "$(uname -r)" == "Darwin" ]]; then
+    export NVM_DIR="$HOME/.nvm"
+    [ -s "/opt/homebrew/opt/nvm/nvm.sh" ] && \. "/opt/homebrew/opt/nvm/nvm.sh"
+    [ -s "/opt/homebrew/opt/nvm/etc/bash_completion.d/nvm" ] && \. "/opt/homebrew/opt/nvm/etc/bash_completion.d/nvm"
+    [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
+else
+    export NVM_DIR="$HOME/.nvm"
+    [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
+    [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
+fi
 
 # pnpm
 export PNPM_HOME="/Users/gkauman/Library/pnpm"
