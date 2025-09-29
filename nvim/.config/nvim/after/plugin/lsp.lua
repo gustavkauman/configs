@@ -5,7 +5,8 @@ local cmp_select = {behavior = cmp.SelectBehavior.Select}
 cmp.setup({
     sources = {
         { name = 'nvim_lsp' },
-        { name = 'buffer' }
+        { name = 'buffer' },
+        { name = 'path' }
     },
     mapping = cmp.mapping.preset.insert({
         ['<C-p>'] = cmp.mapping.select_prev_item(cmp_select),
