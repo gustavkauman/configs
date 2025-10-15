@@ -114,3 +114,6 @@ esac
 
 # DotNet root
 export DOTNET_ROOT="$HOMEBREW_PREFIX/opt/dotnet/libexec"
+
+bindkey '\e[1;5C' forward-word        # ctrl right
+bindkey '\e[1;5D' backward-word       # ctrl left
