@@ -27,7 +27,8 @@ local servers = {
 --    'eslint',
     'rust_analyzer',
     'svelte',
-    'omnisharp'
+    'omnisharp',
+    'terraformls'
 }
 
 mason.setup({
