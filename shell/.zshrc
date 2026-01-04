@@ -1,5 +1,9 @@
 # Fix path 
-export PATH=/opt/nvim-linux-x86_64/bin:$HOME/.cargo/bin:$HOME/bin:$HOME/.dotnet/tools:$PATH
+export PATH=$HOME/.cargo/bin:$HOME/bin:$HOME/.dotnet/tools:$PATH
+
+if [[ "$(uname -r)" = *"WSL"* ]]; then
+    export PATH=/opt/nvim-linux-x86_64/bin:$PATH
+fi
 
 # Path to oh-my-zsh installation.
 # export ZSH="$HOME/.oh-my-zsh"
@@ -105,7 +109,12 @@ else
 fi
 
 # pnpm
-export PNPM_HOME="/Users/gkauman/Library/pnpm"
+if [[ "$(uname -r)" == "Darwin" ]]; then
+    export PNPM_HOME="/Users/gkauman/Library/pnpm"
+else
+    export PNPM_HOME="/home/gkauman/.local/share/pnpm"
+fi
+
 case ":$PATH:" in
   *":$PNPM_HOME:"*) ;;
   *) export PATH="$PNPM_HOME:$PATH" ;;
