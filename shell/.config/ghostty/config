@@ -1,2 +1,6 @@
 theme = Rose Pine
 bell-features = no-audio, no-system, no-attention, no-title
+
+font-size = 10
+font-style = Regular
+font-family = JetBrains Mono Nerd Font
