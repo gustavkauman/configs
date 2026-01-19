@@ -1,5 +1,5 @@
 # Fix path 
-export PATH=$HOME/.cargo/bin:$HOME/bin:$HOME/.dotnet/tools:$PATH
+export PATH=$HOME/.local/bin:$HOME/.cargo/bin:$HOME/bin:$HOME/.dotnet/tools:$PATH
 
 if [[ "$(uname -r)" = *"WSL"* ]]; then
     export PATH=/opt/nvim-linux-x86_64/bin:$PATH
