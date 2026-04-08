@@ -1,6 +1,9 @@
 theme = Rose Pine
 bell-features = no-audio, no-system, no-attention, no-title
 
+cursor-style = block
+shell-integration-features = no-cursor
+
 font-size = 10
 font-style = Regular
-font-family = JetBrains Mono Nerd Font
+font-family = JetBrains Mono
