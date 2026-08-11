@@ -121,8 +121,11 @@ case ":$PATH:" in
 esac
 # pnpm end
 
-# DotNet root
-export DOTNET_ROOT="$HOMEBREW_PREFIX/opt/dotnet/libexec"
+# dotnet
+if [[ "$(uname -r)" == "Darwin" ]]; then
+    export DOTNET_ROOT="/usr/local/share/dotnet"
+    export PATH="$DOTNET_ROOT:$PATH"
+fi
 
 bindkey '\e[1;5C' forward-word        # ctrl right
 bindkey '\e[1;5D' backward-word       # ctrl left
