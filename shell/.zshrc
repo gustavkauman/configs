@@ -1,7 +1,7 @@
 # Fix path 
 export PATH=$HOME/.local/bin:$HOME/.cargo/bin:$HOME/bin:$HOME/.dotnet/tools:$PATH
 
-if [[ "$(uname -r)" != "Darwin" ]]; then
+if [[ "$(uname -s)" != "Darwin" ]]; then
     export PATH=/opt/nvim-linux-x86_64/bin:$PATH
 fi
 
@@ -56,7 +56,7 @@ export LANG="en_US.UTF-8"
 # GPG configuration
 # ===============================
 
-if [[ "$(uname -r)" != *"WSL"* ]]; then # GPG is run through Windows on WSL
+if [[ "$(uname -s)" != *"WSL"* ]]; then # GPG is run through Windows on WSL
 	export GPG_TTY=$(tty)
 	# SSH with GPG
 	export SSH_AUTH_SOCK=$(gpgconf --list-dirs agent-ssh-socket)
@@ -97,7 +97,7 @@ then
 fi
 
 # nvm
-if [[ "$(uname -r)" == "Darwin" ]]; then
+if [[ "$(uname -s)" == "Darwin" ]]; then
     export NVM_DIR="$HOME/.nvm"
     [ -s "/opt/homebrew/opt/nvm/nvm.sh" ] && \. "/opt/homebrew/opt/nvm/nvm.sh"
     [ -s "/opt/homebrew/opt/nvm/etc/bash_completion.d/nvm" ] && \. "/opt/homebrew/opt/nvm/etc/bash_completion.d/nvm"
@@ -109,9 +109,7 @@ else
 fi
 
 # pnpm
-if [[ "$(uname -r)" == "Darwin" ]]; then
-    export PNPM_HOME="/Users/gkauman/Library/pnpm"
-else
+if [[ "$(uname -s)" != "Darwin" ]]; then
     export PNPM_HOME="/home/gkauman/.local/share/pnpm"
 fi
 
@@ -122,7 +120,7 @@ esac
 # pnpm end
 
 # dotnet
-if [[ "$(uname -r)" == "Darwin" ]]; then
+if [[ "$(uname -s)" == "Darwin" ]]; then
     export DOTNET_ROOT="/usr/local/share/dotnet"
     export PATH="$DOTNET_ROOT:$PATH"
 fi
