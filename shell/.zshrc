@@ -121,7 +121,7 @@ esac
 
 # dotnet
 if [[ "$(uname -s)" == "Darwin" ]]; then
-    export DOTNET_ROOT="/usr/local/share/dotnet"
+    export DOTNET_ROOT="$HOMEBREW_PREFIX/opt/dotnet/libexec"
     export PATH="$DOTNET_ROOT:$PATH"
 fi
 
